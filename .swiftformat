@@ -1,0 +1,9 @@
+--swiftversion 5.9
+--header "\nCreated by Shlyap1k.\n//"
+--maxwidth 140
+--varattributes same-line
+--wraparguments before-first
+--wrapcollections before-first
+--wrapternary before-operators
+--enable isEmpty,organizeDeclarations,markTypes,blankLinesAroundMark,anyObjectProtocol,wrapConditionalBodies
+--marktypes always

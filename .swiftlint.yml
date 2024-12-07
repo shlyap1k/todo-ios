@@ -1,0 +1,13 @@
+disabled_rules:
+  - todo
+  - nesting
+  - no_space_in_method_call
+  - nesting
+  - void_return
+  - implicit_getter
+excluded:
+  - Pods
+line_length:
+  warning: 140
+  error: 140
+  ignores_comments: true
