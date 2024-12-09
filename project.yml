@@ -1,0 +1,71 @@
+name: Todo
+
+options:
+  bundleIdPrefix: ru.shlyap1k
+  deploymentTarget:
+    iOS: '12.0'
+
+targets:
+  Todo:
+    type: application
+    platform: iOS
+    info:
+      path: Todo/Info.plist
+      properties:
+        UILaunchStoryboardName: Launch Screen
+    sources:
+      - Todo
+    resources:
+      - Todo
+    settings:
+      base:
+        swiftVersion: 5.9
+        frameworks:
+          - UIKit
+        PODS_ROOT:
+          - "Pods"
+        SYSTEM_FRAMEWORK_SEARCH_PATHS:
+          - "YES"
+    scheme:
+      testTargets:
+        - TodoTests
+        - TodoUITests
+    prebuildScripts:
+      - script: |
+          if ["${CONFIGURATION}" == "Debug"; then
+            export PATH="$PATH:/opt/homebrew/bin"
+            if which mint >/dev/null; then
+              mint run swiftformat Todo --quiet --conflictmarkers ignore
+            fi
+          fi
+        name: SwiftFormat
+      - script: |
+          if [ "${CONFIGURATION}" == "Debug" ]; then
+            export PATH="$PATH:/opt/homebrew/bin"
+            if which mint >/dev/null; then
+              ${PODS_ROOT}/SwiftLint/swiftlint
+            fi
+          fi
+        name: SwiftLint
+  TodoTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: 12.0
+    sources:
+      - TodoTests
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: Todo
+  TodoUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: 12.0
+    sources:
+      - TodoUITests
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: Todo
+    info:
+      path: TodoUITests/Info.plist
