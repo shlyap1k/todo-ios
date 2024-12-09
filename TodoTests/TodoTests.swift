@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import todo_ios
+@testable import Todo
 
-final class todo_iosTests: XCTestCase {
+final class TodoTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,9 +28,32 @@ final class todo_iosTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
+    func testData() throws {
+        let vm = TodoListVM()
+        let todo = Todo(id: 2, dateStart: .init(), dateFinish: .init(), name: "задача", descriptionText: "обновлено")
+        let result = vm.save(todo)
+        switch result {
+        case .success:
+            assert(true)
+        case let  .failure(failure):
+            print(failure.localizedDescription)
+            assert(false)
+        }
+    }
+    
+    func testFetch() throws {
+        let vm = TodoListVM()
+        let todos = vm.getTodos(for: .init())
+        if let todos {
+            print(Array(todos))
+            assert(true)
+        } else {
+            assert(false)
+        }
+    }
 }
