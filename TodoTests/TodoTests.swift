@@ -9,9 +9,11 @@ import XCTest
 @testable import Todo
 
 final class TodoTests: XCTestCase {
-
+    private var testTodoRepository: TodoRepository?
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.testTodoRepository = TodoRepositoryImpl(storage: StorageServiceImpl(.test))
     }
 
     override func tearDownWithError() throws {
@@ -33,27 +35,19 @@ final class TodoTests: XCTestCase {
         }
     }
     
-    func testData() throws {
-        let vm = TodoListVM()
-        let todo = Todo(id: 2, dateStart: .init(), dateFinish: .init(), name: "задача", descriptionText: "обновлено")
-        let result = vm.save(todo)
-        switch result {
-        case .success:
-            assert(true)
-        case let  .failure(failure):
-            print(failure.localizedDescription)
-            assert(false)
-        }
+    func testDataBase() throws {
+        XCTAssertTrue(saveData())
+        XCTAssertTrue(fetchData())
     }
     
-    func testFetch() throws {
-        let vm = TodoListVM()
-        let todos = vm.getTodos(for: .init())
-        if let todos {
-            print(Array(todos))
-            assert(true)
-        } else {
-            assert(false)
-        }
+    func saveData() -> Bool {
+        let todo = TodoDTO(id: 3, dateStart: .init(), dateFinish: .init(), name: "задачи1000", descriptionText: "обновлено")
+        testTodoRepository?.saveTodo(todo)
+        return true
+    }
+    
+    func fetchData() -> Bool {
+        let todoList = testTodoRepository?.getTodoList()
+        return todoList?.contains(where: {$0.name == "задачи1000"}) == true
     }
 }

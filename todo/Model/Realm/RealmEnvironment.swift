@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum RealmEnvironment {
+    case app
+    case test
+}

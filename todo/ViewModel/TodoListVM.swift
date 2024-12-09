@@ -12,18 +12,13 @@ import RealmSwift
 
 class TodoListVM {
     let selectedDate = BehaviorRelay<Date>(value: Date())
-    let todos: BehaviorRelay<[Todo]> = BehaviorRelay(value: [])
+    let todos: BehaviorRelay<[TodoDTO]> = BehaviorRelay(value: [])
     
-    private var realm: Realm?
+    private var todoRepository: TodoRepository
     private let disposeBag = DisposeBag()
 
-    init(
-        _ configuration: Realm.Configuration = Realm.Configuration(
-            inMemoryIdentifier: "inMemory"
-        )
-    ) {
-        realm = try? Realm()
-        print(realm?.configuration.fileURL)
+    init() {
+        todoRepository = TodoRepositoryImpl(storage: StorageServiceImpl(.app))
         selectedDate
             .asObservable()
             .subscribe(onNext: { [weak self] date in
@@ -34,22 +29,15 @@ class TodoListVM {
             .disposed(by: disposeBag)
     }
     
-    public func save<T: Object>(_ object: T) -> Result<Void, Error> {
-        do {
-            try realm?.write {
-                realm?.add(object, update: .modified)
-            }
-        } catch {
-            return .failure(error)
-        }
-        return .success(Void())
+    public func save(_ todo: TodoDTO) {
+        todoRepository.saveTodo(todo)
     }
 
-    func getTodos(for date: Date) -> Results<Todo>? {
+    func getTodos(for date: Date) -> [TodoDTO]? {
         let calendar = Calendar.current
         let startOfDay = calendar.startOfDay(for: date)
         let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) ?? startOfDay
 
-        return realm?.objects(Todo.self)//.filter("dateStart >= %@ AND dateStart < %@", startOfDay, endOfDay)
+        return todoRepository.getTodoList()//.filter("dateStart >= %@ AND dateStart < %@", startOfDay, endOfDay)
     }
 }

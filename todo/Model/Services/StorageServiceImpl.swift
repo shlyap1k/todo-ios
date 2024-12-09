@@ -8,15 +8,13 @@
 import Foundation
 import RealmSwift
 
-final class StorageService {
+final class StorageServiceImpl: StorageService {
     private let storage: Realm?
     
     init(
-        _ configuration: Realm.Configuration = Realm.Configuration(
-            inMemoryIdentifier: "inMemory"
-        )
+        _ environment: RealmEnvironment
     ) {
-        self.storage = try? Realm(configuration: configuration)
+        self.storage = environment.configuredRealm
     }
     
     func saveOrUpdateObject(object: Object) throws {

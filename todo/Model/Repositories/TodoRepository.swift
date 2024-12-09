@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
+
+protocol TodoRepository {
+    func getTodoList() -> [TodoDTO]
+    func saveTodo(_ todo: TodoDTO)
+    func clearTodoList()
+}
