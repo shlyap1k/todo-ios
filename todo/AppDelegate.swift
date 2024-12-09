@@ -16,9 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         // Override point for customization after application launch.
         let window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let navigationController = UINavigationController()
+        let router = RouterImpl(navigationController: navigationController)
+        let initialViewController = TodoListViewController(router: router)
+        
+        navigationController.viewControllers = [initialViewController]
+
         window.backgroundColor = .white
-        let navigationController = UINavigationController(rootViewController: TodoListViewController())
-        navigationController.navigationBar.isHidden = true
         navigationController.interactivePopGestureRecognizer?.isEnabled = false
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

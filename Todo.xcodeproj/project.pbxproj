@@ -12,7 +12,7 @@
 		2717EDA2ABC0FFAD241AEDED /* TodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF35473DC9FE168B65DC67 /* TodoUITests.swift */; };
 		42E49DAF687EEE9D8FF6B32E /* TodoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DFA7480A651BDF89D92F76 /* TodoUITestsLaunchTests.swift */; };
 		4351A7DE1D83A576979DD7BB /* Pods_Todo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E63C30DB5826C9EAB90DCE06 /* Pods_Todo.framework */; };
-		489326D6F9E74AFB08B9D086 /* TodoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012138E8B2504E54A4DE2D14 /* TodoDetailView.swift */; };
+		489326D6F9E74AFB08B9D086 /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012138E8B2504E54A4DE2D14 /* TodoDetailViewController.swift */; };
 		4AD88F63F0F86720C23BB3FC /* Pods_Todo_TodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341845B0620D2D86D40B85A6 /* Pods_Todo_TodoTests.framework */; };
 		5ECC3892347706361FF0320A /* AddTodoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E232A1AC6B258857C3466 /* AddTodoVM.swift */; };
 		632A3B33132A7DA74C5EE117 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793F7FDB14C653DEE6086B3C /* Launch Screen.storyboard */; };
@@ -30,6 +30,9 @@
 		CE3333A12D0762500033C899 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3333A02D0762500033C899 /* StorageService.swift */; };
 		CE3333A42D0764E40033C899 /* RealmEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3333A32D0764E40033C899 /* RealmEnvironment.swift */; };
 		CE3333A62D0764FF0033C899 /* Realm+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3333A52D0764FF0033C899 /* Realm+Configuration.swift */; };
+		CE3333AA2D07702E0033C899 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3333A92D07702E0033C899 /* Router.swift */; };
+		CE3333AC2D07704A0033C899 /* RouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3333AB2D07704A0033C899 /* RouterImpl.swift */; };
+		CE3333AF2D0772B10033C899 /* TodoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3333AE2D0772B10033C899 /* TodoDetailView.swift */; };
 		EBC92538F0B86BE38180D7B6 /* TodoDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412AE5D4E2CEFFF16C9AC5A6 /* TodoDetailVM.swift */; };
 		FEFF295463D9615E3024E6E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F324FEDD2B4A6EEA63D8775B /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -52,7 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		012138E8B2504E54A4DE2D14 /* TodoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailView.swift; sourceTree = "<group>"; };
+		012138E8B2504E54A4DE2D14 /* TodoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
 		0671F6087A320B73F067F123 /* Todo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B63504385819B18708286C5 /* Pods-Todo-TodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-TodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Todo-TodoUITests/Pods-Todo-TodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		341845B0620D2D86D40B85A6 /* Pods_Todo_TodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todo_TodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +84,9 @@
 		CE3333A02D0762500033C899 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		CE3333A32D0764E40033C899 /* RealmEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmEnvironment.swift; sourceTree = "<group>"; };
 		CE3333A52D0764FF0033C899 /* Realm+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Configuration.swift"; sourceTree = "<group>"; };
+		CE3333A92D07702E0033C899 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CE3333AB2D07704A0033C899 /* RouterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterImpl.swift; sourceTree = "<group>"; };
+		CE3333AE2D0772B10033C899 /* TodoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailView.swift; sourceTree = "<group>"; };
 		DC4CE4B95433699C8F6AC80C /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
 		E63C30DB5826C9EAB90DCE06 /* Pods_Todo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FE1C54994C72513E977CE1 /* Pods-Todo-TodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-TodoTests.release.xcconfig"; path = "Target Support Files/Pods-Todo-TodoTests/Pods-Todo-TodoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,9 +233,8 @@
 		CE3333952D075E1C0033C899 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CE3333962D075FBB0033C899 /* StorageServiceImpl.swift */,
-				CE3333A02D0762500033C899 /* StorageService.swift */,
-				CE3333982D0760420033C899 /* Results+Extension.swift */,
+				CE3333A82D0770210033C899 /* Router */,
+				CE3333A72D0770140033C899 /* StorageService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -241,6 +246,34 @@
 				CE3333A52D0764FF0033C899 /* Realm+Configuration.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		CE3333A72D0770140033C899 /* StorageService */ = {
+			isa = PBXGroup;
+			children = (
+				CE3333962D075FBB0033C899 /* StorageServiceImpl.swift */,
+				CE3333A02D0762500033C899 /* StorageService.swift */,
+				CE3333982D0760420033C899 /* Results+Extension.swift */,
+			);
+			path = StorageService;
+			sourceTree = "<group>";
+		};
+		CE3333A82D0770210033C899 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CE3333A92D07702E0033C899 /* Router.swift */,
+				CE3333AB2D07704A0033C899 /* RouterImpl.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CE3333AD2D07729C0033C899 /* TodoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				012138E8B2504E54A4DE2D14 /* TodoDetailViewController.swift */,
+				CE3333AE2D0772B10033C899 /* TodoDetailView.swift */,
+			);
+			path = TodoDetail;
 			sourceTree = "<group>";
 		};
 		CF6AD7E20E22051FDCD06D79 /* Todo */ = {
@@ -260,8 +293,8 @@
 		CFA360F33623065671316FCD /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CE3333AD2D07729C0033C899 /* TodoDetail */,
 				DC4CE4B95433699C8F6AC80C /* AddTodoView.swift */,
-				012138E8B2504E54A4DE2D14 /* TodoDetailView.swift */,
 				867B1567F799540AA48BCBBE /* TodoList */,
 			);
 			path = Screen;
@@ -570,15 +603,18 @@
 				5ECC3892347706361FF0320A /* AddTodoVM.swift in Sources */,
 				CE33339B2D0760810033C899 /* TodoRepository.swift in Sources */,
 				CE3333992D0760420033C899 /* Results+Extension.swift in Sources */,
+				CE3333AA2D07702E0033C899 /* Router.swift in Sources */,
+				CE3333AC2D07704A0033C899 /* RouterImpl.swift in Sources */,
 				B1048B9B90FEAD3DE7018490 /* AddTodoView.swift in Sources */,
 				6F3776B5E637BE6EE17EA037 /* AppDelegate.swift in Sources */,
 				CE3333A62D0764FF0033C899 /* Realm+Configuration.swift in Sources */,
 				CE3333A12D0762500033C899 /* StorageService.swift in Sources */,
+				CE3333AF2D0772B10033C899 /* TodoDetailView.swift in Sources */,
 				CE3333A42D0764E40033C899 /* RealmEnvironment.swift in Sources */,
 				2083179E72331DF385CE5508 /* TodoObject.swift in Sources */,
 				EBC92538F0B86BE38180D7B6 /* TodoDetailVM.swift in Sources */,
 				CE3333972D075FBB0033C899 /* StorageServiceImpl.swift in Sources */,
-				489326D6F9E74AFB08B9D086 /* TodoDetailView.swift in Sources */,
+				489326D6F9E74AFB08B9D086 /* TodoDetailViewController.swift in Sources */,
 				BFFE53265C7D5AB1BE02803A /* TodoListController.swift in Sources */,
 				CE33339F2D0762200033C899 /* TodoRepositoryImpl.swift in Sources */,
 				BE297C74E101C7DAF32294E5 /* TodoListVM.swift in Sources */,

@@ -23,8 +23,7 @@ class TodoListVM {
             .asObservable()
             .subscribe(onNext: { [weak self] date in
                 guard let self, let todos = self.getTodos(for: date) else { return }
-                let results = Array(todos)
-                self.todos.accept(results)
+                self.todos.accept(todos)
             })
             .disposed(by: disposeBag)
     }

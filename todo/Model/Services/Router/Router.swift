@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import UIKit
+
+protocol Router {
+    func push(to viewController: UIViewController, animated: Bool)
+    func pop(animated: Bool)
+}
