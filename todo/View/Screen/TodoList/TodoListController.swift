@@ -67,8 +67,12 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Add the tap action to the table view cells
         contentView.tableView.rx.modelSelected(TodoDTO.self)
-            .subscribe(onNext: { todo in
-                self.showDetail(for: todo)
+            .subscribe(onNext: { [weak self] todo in
+                self?.showDetail(for: todo)
+                // Deselect the row after tapping
+                if let indexPath = self?.contentView.tableView.indexPathForSelectedRow {
+                    self?.contentView.tableView.deselectRow(at: indexPath, animated: true)
+                }
             })
             .disposed(by: disposeBag)
     }
