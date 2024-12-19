@@ -24,35 +24,35 @@ class TodoListVM {
         selectedDate
             .asObservable()
             .subscribe(onNext: { [weak self] date in
-                guard let self, let todos = self.getTodos(for: date) else { return }
-                var result: [HourTodo] = []
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "HH:mm"
-                let hoursFormatter = DateFormatter()
-                hoursFormatter.dateFormat = "HH"
-                
-                for hour in 0..<24 {
-                    let date = Calendar.current.date(bySettingHour: hour, minute: 0, second: 0, of: Date())!
-                    let matchingTodo = todos.first { todo in
-                        hoursFormatter.string(from: todo.dateStart) == hoursFormatter.string(from: date)
-                    }
-                    result.append(HourTodo(hour: dateFormatter.string(from: date), todo: matchingTodo))
-                }
-
-                self.todos.accept(result)
+                self?.fetchTodos(for: date)
             })
             .disposed(by: disposeBag)
     }
-    
+
+    func fetchTodos(for date: Date) {
+        let todos = todoRepository.getTodoList(for: date)
+        var result: [HourTodo] = []
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let hoursFormatter = DateFormatter()
+        hoursFormatter.dateFormat = "HH"
+        
+        for hour in 0..<24 {
+            let date = Calendar.current.date(bySettingHour: hour, minute: 0, second: 0, of: Date())!
+            let matchingTodo = todos.first { todo in
+                hoursFormatter.string(from: todo.dateStart) == hoursFormatter.string(from: date)
+            }
+            result.append(HourTodo(hour: dateFormatter.string(from: date), todo: matchingTodo))
+        }
+
+        self.todos.accept(result)
+    }
+
     func openAddTaskScreen() {
         router.push(to: AddTodoViewController(viewModel: .init(todoRepository: todoRepository, router: router)), animated: true)
     }
     
     func showDetail(for selected: TodoDTO) {
         router.push(to: TodoDetailViewController(todo: selected), animated: true)
-    }
-
-    func getTodos(for date: Date) -> [TodoDTO]? {
-        return todoRepository.getTodoList(for: date)
     }
 }

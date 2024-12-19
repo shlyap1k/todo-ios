@@ -51,6 +51,11 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
         view = contentView
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchTodos(for: viewModel.selectedDate.value)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
