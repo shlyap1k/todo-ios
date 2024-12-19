@@ -30,9 +30,9 @@
             filePath = "Todo/ViewModel/TodoListVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "init()"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "init(router:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -78,8 +78,8 @@
             filePath = "Todo/ViewModel/TodoListVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "getTodos(for:)"
             landmarkType = "7">
             <Locations>
@@ -141,9 +141,9 @@
             filePath = "Todo/ViewModel/TodoListVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "init()"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "init(router:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -219,8 +219,8 @@
             filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -330,8 +330,8 @@
             filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "bindViewModel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,8 +346,8 @@
             filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "loadView()"
             landmarkType = "7">
             <Locations>
@@ -394,9 +394,9 @@
             filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "init(router:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "init(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -481,132 +481,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B21E5518-5DAD-4DB9-A7C0-CD2D7E4753C4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B21E5518-5DAD-4DB9-A7C0-CD2D7E4753C4 - 5342a80b8f9fdfcf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Todo.TodoListViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Todo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/projects/todo-ios/Todo/View/Screen/TodoList/TodoListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "284">
-               </Location>
-               <Location
-                  uuid = "B21E5518-5DAD-4DB9-A7C0-CD2D7E4753C4 - 5342a80b8f9fdfcf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Todo.TodoListViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Todo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/projects/todo-ios/Todo/View/Screen/TodoList/TodoListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "188">
-               </Location>
-               <Location
-                  uuid = "B21E5518-5DAD-4DB9-A7C0-CD2D7E4753C4 - 5342a80b8f9fdfa2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Todo.TodoListViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Todo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/projects/todo-ios/Todo/View/Screen/TodoList/TodoListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "188">
-               </Location>
-               <Location
-                  uuid = "B21E5518-5DAD-4DB9-A7C0-CD2D7E4753C4 - 5342a80b8f9fdd70"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Todo.TodoListViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Todo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/projects/todo-ios/Todo/View/Screen/TodoList/TodoListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "320">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F4D54D71-083B-4AE6-AAA3-1FC6E5336413"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "openAddTaskScreen()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F4D54D71-083B-4AE6-AAA3-1FC6E5336413 - a88a6803cefcced2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Todo.TodoListViewController.openAddTaskScreen() -&gt; ()"
-                  moduleName = "Todo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/projects/todo-ios/Todo/View/Screen/TodoList/TodoListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "F4D54D71-083B-4AE6-AAA3-1FC6E5336413 - a88a6803cefccf89"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Todo.TodoListViewController.openAddTaskScreen() -&gt; ()"
-                  moduleName = "Todo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/projects/todo-ios/Todo/View/Screen/TodoList/TodoListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "31D16D1A-AF5B-451C-BE2A-856CF5D7B4D3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -614,8 +488,8 @@
             filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "bindViewModel()"
             landmarkType = "7">
             <Locations>
@@ -662,41 +536,9 @@
             filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "bindViewModel()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0306B8B9-EDC7-4179-98EC-9F6E620707E1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "912A2AFD-1BE3-4CE7-86DB-458DA4ACA3D5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "showDetail(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -745,6 +587,38 @@
             startingLineNumber = "15"
             endingLineNumber = "15"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E4FBFA7-3940-4929-9783-202A3255AE65"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Todo/View/Screen/TodoList/TodoListController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "setupActions()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10EF7EE6-DA70-4B46-8694-77C64756F6BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Todo/ViewModel/TodoListVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "openAddTaskScreen()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

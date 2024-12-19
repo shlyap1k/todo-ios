@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navigationController = UINavigationController()
         let router = RouterImpl(navigationController: navigationController)
-        let initialViewController = TodoListViewController(router: router)
+        let initialViewController = TodoListViewController(viewModel: .init(router: router))
         
         navigationController.viewControllers = [initialViewController]
 

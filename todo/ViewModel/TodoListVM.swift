@@ -15,10 +15,12 @@ class TodoListVM {
     let todos: BehaviorRelay<[HourTodo]> = BehaviorRelay(value: [])
     
     var todoRepository: TodoRepository
+    private let router: Router
     private let disposeBag = DisposeBag()
 
-    init() {
+    init(router: Router) {
         todoRepository = TodoRepositoryImpl(storage: StorageServiceImpl(.app))
+        self.router = router
         selectedDate
             .asObservable()
             .subscribe(onNext: { [weak self] date in
@@ -40,6 +42,14 @@ class TodoListVM {
                 self.todos.accept(result)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func openAddTaskScreen() {
+        router.push(to: AddTodoViewController(viewModel: .init(todoRepository: todoRepository, router: router)), animated: true)
+    }
+    
+    func showDetail(for selected: TodoDTO) {
+        router.push(to: TodoDetailViewController(todo: selected), animated: true)
     }
 
     func getTodos(for date: Date) -> [TodoDTO]? {

@@ -26,23 +26,21 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    private var hours: [String] = []
     private let disposeBag = DisposeBag()
-    private let viewModel = TodoListVM()
+    private let viewModel: TodoListVM
     private let contentView = TodoListView()
-    private let router: Router
     
-    init(router: Router) {
-        self.router = router
+    init(viewModel: TodoListVM) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     private func setupActions() {
-        contentView.addTaskButton.addTarget(self, action: #selector(openAddTaskScreen), for: .touchUpInside)
+        contentView.addTaskButton.addTarget(self, action: #selector(openAddTask), for: .touchUpInside)
     }
     
-    @objc private func openAddTaskScreen() {
-        router.push(to: AddTodoViewController(viewModel: .init(todoRepository: viewModel.todoRepository, router: router)), animated: true)
+    @objc private func openAddTask() {
+        viewModel.openAddTaskScreen()
     }
     
     required init?(coder: NSCoder) {
@@ -61,17 +59,6 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
             .bind(to: viewModel.selectedDate)
             .disposed(by: disposeBag)
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if let selectedTodo = viewModel.todos.value[indexPath.row].todo {
-            showDetail(for: selectedTodo)
-        }
-    }
-    
-    private func showDetail(for selected: TodoDTO) {
-        router.push(to: TodoDetailViewController(todo: selected), animated: true)
-    }
 
     private func bindViewModel() {
         viewModel.todos
@@ -89,7 +76,7 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
         contentView.tableView.rx.modelSelected(HourTodo.self)
             .subscribe(onNext: { [weak self] hour in
                 if let todo = hour.todo {
-                    self?.showDetail(for: todo)
+                    self?.viewModel.showDetail(for: todo)
                 }
                 // Deselect the row after tapping
                 if let indexPath = self?.contentView.tableView.indexPathForSelectedRow {
