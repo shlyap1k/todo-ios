@@ -14,7 +14,7 @@ class TodoListVM {
     let selectedDate = BehaviorRelay<Date>(value: Date())
     let todos: BehaviorRelay<[TodoDTO]> = BehaviorRelay(value: [])
     
-    private var todoRepository: TodoRepository
+    var todoRepository: TodoRepository
     private let disposeBag = DisposeBag()
 
     init() {

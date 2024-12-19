@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class TodoListView: UIView {
     let datePicker: UIDatePicker = {
         let picker = UIDatePicker()
@@ -22,11 +21,16 @@ class TodoListView: UIView {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "TodoCell")
         return table
     }()
+    
+    let addTaskButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("+ Задача", for: .normal)
+        return button
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        setupConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -34,17 +38,25 @@ class TodoListView: UIView {
     }
 
     private func setupView() {
-        addSubview(datePicker)
+        addTaskButton.setTitleColor(.systemBlue, for: .normal)
+        let stackView = UIStackView(arrangedSubviews: [
+            addTaskButton,
+            datePicker
+        ])
+        stackView.axis = .horizontal
+        stackView.spacing = 16
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(stackView)
         addSubview(tableView)
-    }
-
-    private func setupConstraints() {
+        
+        // Ограничения для stackView
         NSLayoutConstraint.activate([
-            datePicker.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            datePicker.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-
-            tableView.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 16),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            
+            tableView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)

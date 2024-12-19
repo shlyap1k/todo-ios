@@ -32,6 +32,14 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
         super.init(nibName: nil, bundle: nil)
     }
     
+    private func setupActions() {
+        contentView.addTaskButton.addTarget(self, action: #selector(openAddTaskScreen), for: .touchUpInside)
+    }
+    
+    @objc private func openAddTaskScreen() {
+        router.push(to: AddTodoViewController(viewModel: .init(todoRepository: viewModel.todoRepository, router: router)), animated: true)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,6 +51,7 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        setupActions()
         contentView.datePicker.rx.date
             .bind(to: viewModel.selectedDate)
             .disposed(by: disposeBag)
