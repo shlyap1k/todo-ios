@@ -44,8 +44,12 @@ final class StorageServiceImpl: StorageService {
         }
     }
     
-    func fetch<T: Object>(by type: T.Type) -> [T] {
+    func fetch<T: Object>(by type: T.Type, filter: NSPredicate?) -> [T] {
         guard let storage else { return [] }
-        return storage.objects(T.self).toArray()
+        var objects = storage.objects(T.self)
+        if let filter {
+            objects = objects.filter(filter)
+        }
+        return objects.toArray()
     }
 }

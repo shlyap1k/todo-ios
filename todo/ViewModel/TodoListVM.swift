@@ -37,6 +37,6 @@ class TodoListVM {
         let startOfDay = calendar.startOfDay(for: date)
         let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) ?? startOfDay
 
-        return todoRepository.getTodoList()//.filter("dateStart >= %@ AND dateStart < %@", startOfDay, endOfDay)
+        return todoRepository.getTodoList(for: date)
     }
 }

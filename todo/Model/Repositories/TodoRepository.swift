@@ -10,6 +10,10 @@ import RealmSwift
 
 protocol TodoRepository {
     func getTodoList() -> [TodoDTO]
+    
+    func getTodoList(for date: Date) -> [TodoDTO]
+    
     func saveTodo(_ todo: TodoDTO)
+    
     func clearTodoList()
 }

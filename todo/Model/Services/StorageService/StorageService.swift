@@ -17,5 +17,5 @@ protocol StorageService {
     
     func deleteAll() throws
     
-    func fetch<T: Object>(by type: T.Type) -> [T]
+    func fetch<T: Object>(by type: T.Type, filter: NSPredicate?) -> [T]
 }
