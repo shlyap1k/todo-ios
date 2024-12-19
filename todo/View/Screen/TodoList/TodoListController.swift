@@ -17,11 +17,16 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
-        cell.textLabel?.text = viewModel.todos.value[indexPath.row].name
+        if let todo = viewModel.todos.value[indexPath.row].todo {
+            cell.textLabel?.text = "\(viewModel.todos.value[indexPath.row].hour) \(todo.name)"
+        } else {
+            cell.textLabel?.text = viewModel.todos.value[indexPath.row].hour
+        }
         cell.accessoryType = .disclosureIndicator // Optional: Adds a chevron for tappable rows
         return cell
     }
     
+    private var hours: [String] = []
     private let disposeBag = DisposeBag()
     private let viewModel = TodoListVM()
     private let contentView = TodoListView()
@@ -59,8 +64,9 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectedTodo = viewModel.todos.value[indexPath.row]
-        showDetail(for: selectedTodo)
+        if let selectedTodo = viewModel.todos.value[indexPath.row].todo {
+            showDetail(for: selectedTodo)
+        }
     }
     
     private func showDetail(for selected: TodoDTO) {
@@ -69,15 +75,22 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
 
     private func bindViewModel() {
         viewModel.todos
-            .bind(to: contentView.tableView.rx.items(cellIdentifier: "TodoCell", cellType: UITableViewCell.self)) { index, todo, cell in
-                cell.textLabel?.text = "\(todo.name) (\(todo.dateStart))"
+            .bind(to: contentView.tableView.rx.items(cellIdentifier: "TodoCell", cellType: UITableViewCell.self)) { _, hour, cell in
+                if let todo = hour.todo {
+                    cell.textLabel?.text = "\(hour.hour) \(todo.name)"
+                } else {
+                    cell.textLabel?.text = "\(hour.hour)"
+                }
             }
             .disposed(by: disposeBag)
         
         // Add the tap action to the table view cells
-        contentView.tableView.rx.modelSelected(TodoDTO.self)
-            .subscribe(onNext: { [weak self] todo in
-                self?.showDetail(for: todo)
+        
+        contentView.tableView.rx.modelSelected(HourTodo.self)
+            .subscribe(onNext: { [weak self] hour in
+                if let todo = hour.todo {
+                    self?.showDetail(for: todo)
+                }
                 // Deselect the row after tapping
                 if let indexPath = self?.contentView.tableView.indexPathForSelectedRow {
                     self?.contentView.tableView.deselectRow(at: indexPath, animated: true)

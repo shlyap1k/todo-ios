@@ -12,7 +12,7 @@ import RealmSwift
 
 class TodoListVM {
     let selectedDate = BehaviorRelay<Date>(value: Date())
-    let todos: BehaviorRelay<[TodoDTO]> = BehaviorRelay(value: [])
+    let todos: BehaviorRelay<[HourTodo]> = BehaviorRelay(value: [])
     
     var todoRepository: TodoRepository
     private let disposeBag = DisposeBag()
@@ -23,20 +23,26 @@ class TodoListVM {
             .asObservable()
             .subscribe(onNext: { [weak self] date in
                 guard let self, let todos = self.getTodos(for: date) else { return }
-                self.todos.accept(todos)
+                var result: [HourTodo] = []
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH:mm"
+                let hoursFormatter = DateFormatter()
+                hoursFormatter.dateFormat = "HH"
+                
+                for hour in 0..<24 {
+                    let date = Calendar.current.date(bySettingHour: hour, minute: 0, second: 0, of: Date())!
+                    let matchingTodo = todos.first { todo in
+                        hoursFormatter.string(from: todo.dateStart) == hoursFormatter.string(from: date)
+                    }
+                    result.append(HourTodo(hour: dateFormatter.string(from: date), todo: matchingTodo))
+                }
+
+                self.todos.accept(result)
             })
             .disposed(by: disposeBag)
     }
-    
-    public func save(_ todo: TodoDTO) {
-        todoRepository.saveTodo(todo)
-    }
 
     func getTodos(for date: Date) -> [TodoDTO]? {
-        let calendar = Calendar.current
-        let startOfDay = calendar.startOfDay(for: date)
-        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) ?? startOfDay
-
         return todoRepository.getTodoList(for: date)
     }
 }
